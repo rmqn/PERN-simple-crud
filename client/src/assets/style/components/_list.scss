@@ -1,0 +1,20 @@
+.list {
+
+  background-color: $blue;
+  border-radius: 3px;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    padding: 1em 1.3em;
+    border-bottom: 1px solid $blue2;
+
+    &:last-child {
+      border: none;
+    }
+  }
+
+
+
+
+}

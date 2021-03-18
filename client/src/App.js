@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Axios from "../src/service/todoServices";
+import Background from './components/svg/Background';
 import FormEditTodo from './components/FormEditTodo';
 import FormInputTodo from './components/FormInputTodo'
 import ListTodos from './components/ListTodos';
+import DarkMod from './components/svg/DarkMod';
 
 function App() {
 
@@ -10,6 +12,9 @@ function App() {
   const [currentTodo, setCurrentTodo] = useState(initialTodo);
   const [editing, setEditing] = useState(false);
   const [todos, setTodos] = useState([]);
+
+  const [dark, setDark] = useState(false);
+
 
 
   useEffect(() => {
@@ -48,14 +53,14 @@ function App() {
   // UPDATE
   const updateTodo = async (data) => {
     await Axios.update(data.todo_id, data)
-    .then(() => {
+      .then(() => {
         setTodos(data)
         setEditing(false);
         refreshList();
-    })
-    .catch(err => {
+      })
+      .catch(err => {
         console.log(err);
-    });
+      });
   };
 
   // DELETE
@@ -75,16 +80,23 @@ function App() {
   };
 
   return (
-    <main className="container mx-auto p-6">
-      <h1 className="text-6xl mb-6 text-center">Pern todo list</h1>
-      {editing ? (
-        <FormEditTodo currentTodo={currentTodo} setEditing={setEditing} updateTodo={updateTodo} />
-      ) : (
-        <FormInputTodo onSubmitForm={onSubmitForm} />
-      )}
-      <h1 className="text-2xl mb-3 text-center">List Todos</h1>
-      <ListTodos todos={todos} editTodo={editTodo} deleteTodo={deleteTodo} />
-    </main>
+    <div className=" ">
+      <Background />
+      <main className="main">
+        <div className="main__title">
+          <h1>TODO</h1>
+          <span onClick={() => setDark(!dark)}>
+            <DarkMod dark={dark} />
+          </span>
+        </div>
+        {editing ? (
+          <FormEditTodo currentTodo={currentTodo} setEditing={setEditing} updateTodo={updateTodo} />
+        ) : (
+          <FormInputTodo onSubmitForm={onSubmitForm} />
+        )}
+        <ListTodos todos={todos} editTodo={editTodo} deleteTodo={deleteTodo} />
+      </main>
+    </div>
   )
 }
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Check from './svg/Check';
 
 function FormInputTodo({ onSubmitForm }) {
 
@@ -19,15 +20,15 @@ function FormInputTodo({ onSubmitForm }) {
 
   return (
     <>
-      <form action="" onSubmit={handleSubmit} className="mb-6 text-center">
+      <form action="" onSubmit={handleSubmit} className="formTodo">
+        {/* <div className="icon"></div> */}
+        <Check/>
         <input
           type="text"
           name="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          className="border rounded py-2 px-4 mr-3 w-7/12"
         />
-        <button className="border rounded py-2 px-4 bg-green-400 text-white">Add</button>
       </form>
     </>
   )

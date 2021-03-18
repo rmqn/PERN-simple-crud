@@ -1,0 +1,23 @@
+.icon {
+  position: relative;
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 1.3em;
+  border: solid 1px transparent;
+  border-radius: 80px;
+  background-image: linear-gradient($blue, $blue), radial-gradient(circle at top left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

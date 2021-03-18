@@ -1,0 +1,23 @@
+.main {
+  width: 60%;
+  position: relative;
+  top: 0;
+  margin: -10em auto;
+
+  &__title {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+    
+    h1 {
+      font-size: 2em;
+      letter-spacing: .5em;
+      font-weight: 700;
+    }
+
+
+  }
+
+}

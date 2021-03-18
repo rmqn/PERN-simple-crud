@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  &::selection {
+    // background: $blue;
+  }
+}
+
+body {
+  background-color: $bg-color;
+  font-family: $font;
+  color: $white;
+}
+
+input {
+  background: none;
+  border: none;
+  font-family: $font;
+  color: $white;
+  padding: .5em;
+  font-size: 1em;
+}
