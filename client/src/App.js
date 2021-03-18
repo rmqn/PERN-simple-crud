@@ -75,16 +75,16 @@ function App() {
   };
 
   return (
-    <>
-      <h1>Pern todo list</h1>
+    <main className="container mx-auto p-6">
+      <h1 className="text-6xl mb-6 text-center">Pern todo list</h1>
       {editing ? (
         <FormEditTodo currentTodo={currentTodo} setEditing={setEditing} updateTodo={updateTodo} />
       ) : (
         <FormInputTodo onSubmitForm={onSubmitForm} />
       )}
-      <h1>List Todos</h1>
+      <h1 className="text-2xl mb-3 text-center">List Todos</h1>
       <ListTodos todos={todos} editTodo={editTodo} deleteTodo={deleteTodo} />
-    </>
+    </main>
   )
 }
 

@@ -25,15 +25,16 @@ function FormEditTodo({currentTodo, setEditing, updateTodo}) {
 
   return (
     <>
-      <form>
+      <form action="" className="mb-6 text-center">
         <input
           type="text"
           name="description"
           value={todo.description}
           onChange={handleChange}
+          className="border rounded py-2 px-4 mr-3 w-7/12 shadow-xl"
         />
-        <button type="submit" onClick={handleSubmit}>Edit</button>
-        <button type="submit" onClick={handleCancel}>Cancel</button>
+        <button className="rounded bg-blue-500 text-white py-2 px-4 mr-2 shadow-xl" type="submit" onClick={handleSubmit}>Edit</button>
+        <button className="rounded bg-red-500 text-white py-2 px-4 shadow-xl" type="submit" onClick={handleCancel}>Cancel</button>
       </form>
     </>
   )

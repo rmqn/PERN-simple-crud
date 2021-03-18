@@ -19,14 +19,15 @@ function FormInputTodo({ onSubmitForm }) {
 
   return (
     <>
-      <form action="" onSubmit={handleSubmit}>
+      <form action="" onSubmit={handleSubmit} className="mb-6 text-center">
         <input
           type="text"
           name="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          className="border rounded py-2 px-4 mr-3 w-7/12 shadow-xl"
         />
-        <button>Add</button>
+        <button className="border rounded py-2 px-4 bg-green-400 text-white shadow-xl">Add</button>
       </form>
     </>
   )
