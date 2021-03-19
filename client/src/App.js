@@ -14,7 +14,7 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   const [dark, setDark] = useState(false);
-
+  const [isDone, setIsDone] = useState(false);
 
 
   useEffect(() => {
@@ -62,6 +62,18 @@ function App() {
         console.log(err);
       });
   };
+  // UPDATE STATUS
+  const updateTodoStatus = async (data) => {
+    await Axios.updateStatus(data.todo_id, data)
+    console.log(data)
+      .then(() => {
+        setTodos(data)
+        refreshList();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   // DELETE
   const deleteTodo = async (id) => {
@@ -79,6 +91,15 @@ function App() {
     listTodos();
   };
 
+  // is Done 
+  const putIsDone = (id, todo) => {
+    console.log(id);
+    console.log(todo);
+    setCurrentTodo(todo);
+    updateTodoStatus(todo)
+    console.log(todo);
+  }
+
   return (
     <div className=" ">
       <Background />
@@ -90,11 +111,26 @@ function App() {
           </span>
         </div>
         {editing ? (
-          <FormEditTodo currentTodo={currentTodo} setEditing={setEditing} updateTodo={updateTodo} />
+          <FormEditTodo
+            currentTodo={currentTodo}
+            setEditing={setEditing}
+            updateTodo={updateTodo}
+          />
         ) : (
-          <FormInputTodo onSubmitForm={onSubmitForm} />
+          <FormInputTodo
+            onSubmitForm={onSubmitForm}
+          />
         )}
-        <ListTodos todos={todos} editTodo={editTodo} deleteTodo={deleteTodo} />
+        <ListTodos
+          todos={todos}
+          editTodo={editTodo}
+          deleteTodo={deleteTodo}
+
+          currentTodo={currentTodo}
+          putIsDone={putIsDone}
+          updateTodoStatus={updateTodoStatus}
+          isDone={isDone}
+        />
       </main>
     </div>
   )

@@ -11,6 +11,9 @@ const create = data => {
 const update = (id, data) => {
     return http.put(`/todos/${id}`, data);
 };
+const updateStatus = (id, data) => {
+    return http.put(`/todos/status/${id}`, data);
+};
 
 const remove = id => {
     return http.delete(`/todos/${id}`);
@@ -21,5 +24,6 @@ export default {
     getAll,
     create,
     update,
+    updateStatus,
     remove
 };
