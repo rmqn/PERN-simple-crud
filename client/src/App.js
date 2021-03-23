@@ -12,10 +12,8 @@ function App() {
   const [currentTodo, setCurrentTodo] = useState(initialTodo);
   const [editing, setEditing] = useState(false);
   const [todos, setTodos] = useState([]);
-  const [updatedTodo, setUpdatedTodo] = useState({todo_id: null, is_done: null});
 
   const [dark, setDark] = useState(false);
-  const [isDone, setIsDone] = useState(false);
 
 
   useEffect(() => {
@@ -68,7 +66,6 @@ function App() {
     await Axios.updateStatus(data.todo_id, data)
       .then(() => {
         const newData = [...todos, data]
-        console.log(newData);
         setTodos(newData)
         refreshList();
       })
@@ -117,6 +114,7 @@ function App() {
         )}
         <ListTodos
           todos={todos}
+          setTodos={setTodos}
           editTodo={editTodo}
           deleteTodo={deleteTodo}
           updateTodoStatus={updateTodoStatus}

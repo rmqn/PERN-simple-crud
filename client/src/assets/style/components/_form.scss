@@ -7,9 +7,15 @@
   margin-bottom: 1.5em;
   border-radius: 3px;
 
-
   input {
     width: 90%;
+  }
 
+  button {
+    margin-right: .5em;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }

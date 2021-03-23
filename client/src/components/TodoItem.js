@@ -6,15 +6,14 @@ function TodoItem({ todo, editTodo, deleteTodo, updateTodoStatus }) {
 
   const [isDone, setIsDone] = useState(todo.is_done)
 
-  const handleChange = () => {
+  const updateIsDone = () => {
     setIsDone(!isDone)
     updateTodoStatus({ todo_id: todo.todo_id, is_done: !isDone })
   }
-  console.log(todo, 'is done :', isDone);
 
   return (
-    <li className="list__container">
-      <div className="" onClick={handleChange}>
+    <li className="list__item">
+      <div className="" onClick={updateIsDone}>
         <Check status={isDone} />
       </div>
       <h3

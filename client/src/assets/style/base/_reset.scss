@@ -31,3 +31,16 @@ a {
     color: $white;
   }
 }
+
+button {
+  border: none;
+  background: none;
+  font-family: $font;
+  color: $blue2;
+  font-size: 1em;
+
+  &:hover {
+    color: $white;
+    cursor: pointer;
+  }
+}
