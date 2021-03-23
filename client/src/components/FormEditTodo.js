@@ -8,6 +8,7 @@ function FormEditTodo({currentTodo, setEditing, updateTodo}) {
     const { name, value } = e.target;
     setTodo({ ...todo, [name]: value });
   }
+  console.log(todo);
 
   const handleSubmit = e => {
     e.preventDefault();

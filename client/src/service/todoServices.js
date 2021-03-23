@@ -9,10 +9,10 @@ const create = data => {
 };
 
 const update = (id, data) => {
-    return http.put(`/todos/${id}`, data);
+    return http.patch(`/todos/${id}`, data);
 };
 const updateStatus = (id, data) => {
-    return http.put(`/todos/status/${id}`, data);
+    return http.patch(`/todos/status/${id}`, data);
 };
 
 const remove = id => {

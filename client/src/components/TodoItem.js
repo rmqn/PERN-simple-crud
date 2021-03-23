@@ -2,18 +2,19 @@ import React, { useState } from 'react'
 import cross from '../assets/images/icon-cross.svg'
 import Check from './svg/Check'
 
-function TodoItem({ todo, editTodo, deleteTodo, putIsDone, updateTodoStatus }) {
+function TodoItem({ todo, editTodo, deleteTodo, updateTodoStatus }) {
 
   const [isDone, setIsDone] = useState(todo.is_done)
 
+  const handleChange = () => {
+    setIsDone(!isDone)
+    updateTodoStatus({ todo_id: todo.todo_id, is_done: !isDone })
+  }
   console.log(todo, 'is done :', isDone);
-
-
 
   return (
     <li className="list__container">
-      <div className="test" onClick={() => updateTodoStatus(todo.todo_id,!isDone)}>
-
+      <div className="" onClick={handleChange}>
         <Check status={isDone} />
       </div>
       <h3

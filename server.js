@@ -43,7 +43,7 @@ app.get("/todos/:id", async (req, res) => {
 })
 
 // Update
-app.put("/todos/:id", async (req, res) => {
+app.patch("/todos/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { description } = req.body;
@@ -55,7 +55,7 @@ app.put("/todos/:id", async (req, res) => {
   }
 })
 // Update status value
-app.put("/todos/status/:id", async (req, res) => {
+app.patch("/todos/status/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { is_done } = req.body;
